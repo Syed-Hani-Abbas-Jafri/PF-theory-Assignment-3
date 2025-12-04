@@ -8,7 +8,7 @@ typedef struct {
 int simulateRecursively(Event events[], int consumption, int index, int totalStops, int solarBonus) {
  
     if (index >= totalStops) {
-        return events[index - 1].fuel; // Return the final fuel status
+        return events[index - 1].fuel; 
     }
 
     if (events[index].fuel <= 0) {
@@ -33,14 +33,14 @@ int simulateRecursively(Event events[], int consumption, int index, int totalSto
 
     if (index + 1 < totalStops) {
         events[index + 1].fuel = currentFuel;
-        events[index + 1].regen = events[index].regen; // Carry over regen stat
+        events[index + 1].regen = events[index].regen; 
     }
 
     return simulateRecursively(events, consumption, index + 1, totalStops, solarBonus);
 }
 
 int main() {
-    // Configuration
+    
     int totalStops = 10;
     int startFuel = 500;
     int consumption = 70;
